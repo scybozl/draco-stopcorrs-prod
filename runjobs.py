@@ -2,6 +2,7 @@ from subprocess import Popen, PIPE #, check_output
 from sys import argv, exit
 from glob import glob
 from datetime import date
+import time
 import os
 
 mode = argv[1] # grid or event
@@ -28,10 +29,14 @@ if mode == "grid":
   os.system('mkdir qsub/'+today+'\n')
   os.system('mkdir qsub/out/'+today+'\n')
 
-  for pcard in glob("ParamCards/tL*.dat"):
+  inputlist = open("ParamCards/tL.half.list", 'r')
+  for pcard in inputlist:
+    pcard = pcard.split('\n')[0]
+#  for pcard in glob("ParamCards/tL*.dat"):
     for hand in ['L', 'R']:
 
-        paramcard = pcard.split('/')[1]
+#        paramcard = pcard.split('/')[1]
+        paramcard = pcard.replace('tL', 't'+hand)
         mstop = paramcard.split('.')[1].split('-')[0]
         mchi  = paramcard.split('-')[1].split('M1.')[1]
 
@@ -42,7 +47,7 @@ if mode == "grid":
         filename = 'RunStops_MSSM_CT14_tst'+hand.lower()+'-merged.dat'
 
         os.system('mkdir -p '+dirname)
-        os.system('cp '+pcard+' '+dirname)
+        os.system('cp '+'ParamCards/'+pcard+' '+dirname)
         os.system('cp base/'+filename+' '+dirname)
 
         sherpaopts = [ "PRtgerr:="+str(err),
@@ -71,12 +76,15 @@ if mode == "grid":
         batchfile.write(' '.join(['srun', 'Sherpa'] + sherpaopts)+' -e 10\n')
         batchfile.close()
 
-        os.system('sbatch '+batchfile)
+        os.system('sbatch '+batchname)
 
         while True:
-          njobs = os.system("squeue -u lscyboz -n 'stop-prod' | wc -l")
+          njobs = int(os.popen("squeue -u lscyboz -n 'stop-prod' | wc -l").read())
           print 'njobs = ', njobs-1, ' ...'
           if (njobs < 20): break
+          time.sleep(20)
+
+  inputlist.close()
 
 
 elif mode == "event":

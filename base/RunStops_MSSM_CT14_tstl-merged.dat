@@ -68,6 +68,7 @@
 
   HARD_DECAYS Off;
 
+  HEPMC_USE_NAMED_WEIGHTS 1;
   EVT_FILE_PATH = OutHepMC-PRname;
   EVENT_OUTPUT = HepMC_GenEvent[PRname-PRran];
 }(run);
