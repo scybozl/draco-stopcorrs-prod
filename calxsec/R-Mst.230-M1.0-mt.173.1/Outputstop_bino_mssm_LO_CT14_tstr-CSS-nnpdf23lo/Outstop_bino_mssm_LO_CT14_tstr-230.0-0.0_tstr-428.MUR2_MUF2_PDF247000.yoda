@@ -1,0 +1,77 @@
+BEGIN YODA_HISTO1D /MC_XS/N
+Path=/MC_XS/N
+Title=
+Type=Histo1D
+XLabel=
+YLabel=
+# Mean: 5.000000e-01
+# Area: 1.000000e+01
+# ID	 ID	 sumw	 sumw2	 sumwx	 sumwx2	 numEntries
+Total   	Total   	1.000000e+01	1.000000e+01	5.000000e+00	2.500000e+00	10
+Underflow	Underflow	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+Overflow	Overflow	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+# xlow	 xhigh	 sumw	 sumw2	 sumwx	 sumwx2	 numEntries
+0.000000e+00	1.000000e+00	1.000000e+01	1.000000e+01	5.000000e+00	2.500000e+00	10
+END YODA_HISTO1D
+
+BEGIN YODA_SCATTER2D /MC_XS/XS
+Path=/MC_XS/XS
+Title=
+Type=Scatter2D
+XLabel=
+YLabel=
+# xval	 xerr-	 xerr+	 yval	 yerr-	 yerr+
+0.000000e+00	5.000000e-01	5.000000e-01	1.819009e-01	1.813276e-01	1.813276e-01
+END YODA_SCATTER2D
+
+BEGIN YODA_HISTO1D /MC_XS/pmN
+Path=/MC_XS/pmN
+Title=
+Type=Histo1D
+XLabel=
+YLabel=
+# Mean: 5.000000e-01
+# Area: 1.000000e+01
+# ID	 ID	 sumw	 sumw2	 sumwx	 sumwx2	 numEntries
+Total   	Total   	1.000000e+01	1.000000e+01	5.000000e+00	2.500000e+00	10
+Underflow	Underflow	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+Overflow	Overflow	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+# xlow	 xhigh	 sumw	 sumw2	 sumwx	 sumwx2	 numEntries
+-1.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+0.000000e+00	1.000000e+00	1.000000e+01	1.000000e+01	5.000000e+00	2.500000e+00	10
+END YODA_HISTO1D
+
+BEGIN YODA_HISTO1D /MC_XS/pmXS
+Path=/MC_XS/pmXS
+ScaledBy=2.00000000000000004e-02
+Title=
+Type=Histo1D
+XLabel=
+YLabel=
+# Mean: 5.000000e-01
+# Area: 1.819009e-01
+# ID	 ID	 sumw	 sumw2	 sumwx	 sumwx2	 numEntries
+Total   	Total   	1.819009e-01	3.288387e-02	9.095045e-02	4.547523e-02	10
+Underflow	Underflow	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+Overflow	Overflow	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+# xlow	 xhigh	 sumw	 sumw2	 sumwx	 sumwx2	 numEntries
+-1.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0.000000e+00	0
+0.000000e+00	1.000000e+00	1.819009e-01	3.288387e-02	9.095045e-02	4.547523e-02	10
+END YODA_HISTO1D
+
+BEGIN YODA_COUNTER /_EVTCOUNT
+Path=/_EVTCOUNT
+Title=
+Type=Counter
+# sumW	 sumW2	 numEntries
+9.095045e+00	8.220967e+01	10
+END YODA_COUNTER
+
+BEGIN YODA_SCATTER1D /_XSEC
+Path=/_XSEC
+Title=
+Type=Scatter1D
+# xval	 xerr-	 xerr+
+1.819009e-01	1.813276e-01	1.813276e-01
+END YODA_SCATTER1D
+

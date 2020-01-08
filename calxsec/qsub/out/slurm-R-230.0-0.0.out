@@ -1,0 +1,292 @@
+/draco/u/lscyboz/SHERPA-MC-2.2.8_stopCorrelations-new/PROD/calxsec/calcxsec
+-f
+RunStops_MSSM_CT14_tstr-merged.dat
+PRparamcard:=tR.230-M1.0-mt.173.1.dat
+PRmss:=230.0
+PRcim:=0.0
+PRshower:=CSS
+PRtgerr:=999
+Welcome to Sherpa, Ludovic Michel Scyboz. Initialization of framework underway.
+The local time is Wed Jan  8 16:12:06 2020.
+Run_Parameter::Init(): Seed mode '*'
+Run_Parameter::Init(): Setting memory limit to 251.111 GB.
+Random::SetSeed(): Seed set to 428
+-----------------------------------------------------------------------------
+-----------    Event generation run with SHERPA started .......   -----------
+-----------------------------------------------------------------------------
+................................................ |       +                   
+................................................ ||  |       +  +            
+...................................        ....  | |         /   +           
+................. ................   _,_ |  ....  ||         +|  +  +        
+...............................  __.'  ,\|  ...  ||    /    +|          +    
+.............................. (  \    \   ...  | |  |   + + \         +   
+.............................  (    \   -/  .... ||       +    |          +  
+........ ...................  <S   /()))))~~~~~~~~##     +     /\    +       
+............................ (!H   (~~)))))~~~~~~#/     +  +    |  +         
+................ ........... (!E   (~~~)))))     /|/    +         +          
+............................ (!R   (~~~)))))   |||   + +            +        
+..... ...................... (!P    (~~~~)))   /|  + +          +            
+............................ (!A>    (~~~~~~~~~##        + +        +        
+............................. ~~(!    '~~~~~~~ \       +     + +      +      
+...............................  `~~~QQQQQDb //   |         + + +        +   
+........................ ..........   IDDDDP||     \  + + + + +             +
+....................................  IDDDI||       \                      + 
+.................................... IHD HD||         \ + +  + + + + +      +
+...................................  IHD ##|            :-) + +\          +  
+......... ............... ......... IHI ## /      /   +  + + + +\       +    
+................................... IHI/ /       /      + + + +        +     
+................................... ## | | /    / + +      + + /      +      
+....................... /TT\ .....  ##/ ///  / + + + + + + +/       +        
+......................./TTT/T\ ... /TT\/\\\ / + + + + + + +/   \         +   
+....................../TTT/TTTT\...|TT/T\\\/   +    ++  + /              
+-----------------------------------------------------------------------------
+
+     SHERPA version 2.2.8 (Cho Oyu)
+                                                                             
+     Authors:        Enrico Bothmann, Stefan Hoeche, Frank Krauss,           
+                     Silvan Kuttimalai, Marek Schoenherr, Holger Schulz,     
+                     Steffen Schumann, Frank Siegert, Korinna Zapp           
+     Former Authors: Timo Fischer, Tanju Gleisberg, Hendrik Hoeth,           
+                     Ralf Kuhn, Thomas Laubrich, Andreas Schaelicke,         
+                     Jan Winter                                              
+                                                                             
+     This program uses a lot of genuine and original research work           
+     by other people. Users are encouraged to refer to                       
+     the various original publications.                                      
+                                                                             
+     Users are kindly asked to refer to the documentation                    
+     published under JHEP 02(2009)007                                        
+                                                                             
+     Please visit also our homepage                                          
+                                                                             
+       http://sherpa.hepforge.org                                            
+                                                                             
+     for news, bugreports, updates and new releases.                         
+                                                                             
+-----------------------------------------------------------------------------
+
+Git branch rel-2-2-8, revision 23d338a128de4aa5b1cd53cad7acf7f6d045d66d.
+
+ List of Particle Data 
+  IDName     kfc  MASS[<kfc>]   WIDTH[<kfc>]  STABLE[<kfc>] MASSIVE[<kfc>]  ACTIVE[<kfc>]  YUKAWA[<kfc>]
+       d       1         0.01              0              1              0              1              0
+       u       2        0.005              0              1              0              1              0
+       s       3          0.2              0              1              0              1              0
+       c       4         1.42              0              1              0              1              0
+       b       5      4.88992              0              1              1              1        4.88992
+       t       6        173.1         1.4777              0              1              1          173.1
+      e-      11     0.000511              0              1              0              1              0
+      ve      12            0              0              1              0              1              0
+     mu-      13        0.105              0              1              0              1              0
+      vm      14            0              0              1              0              1              0
+    tau-      15        1.777              0              1              1              1          1.777
+      vt      16            0              0              1              0              1              0
+       g      21            0              0              1              0              1              0
+       a      22            0              0              1              0              1              0
+       Z      23      91.1876        2.41143              0              1              1        91.1876
+      W+      24       79.829        2.00312              0              1              1         79.829
+     h01      25      125.699     0.00198611              0              1              1        125.699
+     h02      35        39996       0.574801              0              1              1          39996
+      A0      36      39958.4       0.632178              0              1              1        39958.4
+      H+      37      40787.9       0.546963              0              1              1        40787.9
+      G0     250      91.1876              0              1              1              1        91.1876
+      G+     251       79.829              0              1              1              1         79.829
+     sd1 1000001      56844.1        5.31279              0              1              1        56844.1
+     su1 1000002      56111.9         5.4772              0              1              1        56111.9
+     sd2 1000003      56844.1        5.31279              0              1              1        56844.1
+     su2 1000004      56111.9         5.4772              0              1              1        56111.9
+     sd3 1000005      51306.5        3.73628              0              1              1        51306.5
+     su3 1000006          230      0.0965697              0              1              1            230
+    sl1- 1000011      20291.6       0.213682              0              1              1        20291.6
+     sv1 1000012      18525.8       0.149882              0              1              1        18525.8
+    sl2- 1000013      20291.6       0.213682              0              1              1        20291.6
+     sv2 1000014      18525.8       0.149882              0              1              1        18525.8
+    sl3- 1000015      13449.1       0.148327              0              1              1        13449.1
+     sv3 1000016      18470.8       0.147519              0              1              1        18470.8
+      go 1000021       607714        5.50675              0              1              1         607714
+      n1 1000022            0              0              1              0              1              0
+      n2 1000023      18108.8       0.020777              0              1              1        18108.8
+     x1+ 1000024      18169.7      0.0170414              0              1              1        18169.7
+      n3 1000025      36375.6        1.91599              0              1              1        36375.6
+      n4 1000035      38172.9        2.58585              0              1              1        38172.9
+     x2+ 1000037      37993.9         2.4869              0              1              1        37993.9
+     sd4 2000001      54522.8       0.285812              0              1              1        54522.8
+     su4 2000002      54925.9        1.15297              0              1              1        54925.9
+     sd5 2000003      54522.8       0.285812              0              1              1        54522.8
+     su5 2000004      54925.9        1.15297              0              1              1        54925.9
+     sd6 2000005      54372.7       0.801566              0              1              1        54372.7
+     su6 2000006      58578.6        7.37313              0              1              1        58578.6
+    sl4- 2000011      14410.3       0.216122              0              1              1        14410.3
+    sl5- 2000013      14410.3       0.216122              0              1              1        14410.3
+    sl6- 2000015      20686.8       0.269906              0              1              1        20686.8
+     ghG 9000001            0              0              1              0              1              0
+     ghA 9000002            0              0              1              0              1              0
+     ghZ 9000003      91.1876        2.41143              0              1              1        91.1876
+    ghWp 9000004       79.829        2.00312              0              1              1         79.829
+    ghWm 9000005       79.829        2.00312              0              1              1         79.829
+
+ List of Particle Containers 
+    IDName     kfc     Constituents
+         l      90     {e-,e+,mu-,mu+}
+         v      91     {ve,ve~,vm,vm~,vt,vt~}
+         j      93     {d,d~,u,u~,s,s~,c,c~,g}
+         Q      94     {d,d~,u,u~,s,s~,c,c~}
+         r      99     {d,d~,u,u~,s,s~,c,c~,g}
+
+Beam_Spectra_Handler : 
+   type = Monochromatic*Monochromatic
+   for    P+  ((6500,0,0,6500))
+   and    P+  ((6500,0,0,-6500))
+PDF set 'NNPDF23_lo_as_0130_qed' loaded for beam 1 (P+).
+PDF set 'NNPDF23_lo_as_0130_qed' loaded for beam 2 (P+).
+Initialized the ISR: (SF)*(SF)
+One_Running_AlphaS::One_Running_AlphaS() {
+  Setting \alpha_s according to PDF
+  perturbative order 0
+  \alpha_s(M_Z) = 0.130003
+}
+One_Running_AlphaS::One_Running_AlphaS() {
+  Setting \alpha_s according to PDF
+  perturbative order 0
+  \alpha_s(M_Z) = 0.130003
+}
+Hadron_Init::Init(): Initializing kf table for hadrons.
+Initialized the Fragmentation_Handler.
+Initialized the Soft_Collision_Handler.
+CS_Shower::CS_Shower(): Set respect Q2 mode 0
+CS_Shower::CS_Shower(): Set color setter mode 0
+CS_Shower::CS_Shower(): Set respect Q2 mode 0
+CS_Shower::CS_Shower(): Set color setter mode 0
+Initialized the Shower_Handler.
+ME_Generator_Base::SetPSMasses(): Massive PS flavours for Comix: (c,c~,e-,e+,mu-,mu+)
++----------------------------------+
+|                                  |
+|      [31mCCC[0m  [32mOOO[0m  [34mM[0m   [34mM[0m I [33mX[0m   [33mX[0m     |
+|     [31mC[0m    [32mO[0m   [32mO[0m [34mMM[0m [34mMM[0m I  [33mX[0m [33mX[0m      |
+|     [31mC[0m    [32mO[0m   [32mO[0m [34mM[0m [34mM[0m [34mM[0m I   [33mX[0m       |
+|     [31mC[0m    [32mO[0m   [32mO[0m [34mM[0m   [34mM[0m I  [33mX[0m [33mX[0m      |
+|      [31mCCC[0m  [32mOOO[0m  [34mM[0m   [34mM[0m I [33mX[0m   [33mX[0m     |
+|                                  |
++==================================+
+|  Color dressed  Matrix Elements  |
+|     http://comix.freacafe.de     |
+|   please cite  JHEP12(2008)039   |
++----------------------------------+
+Matrix_Element_Handler::BuildProcesses(): Looking for processes .................... done ( 46 MB, 0s / 0s ).
+Matrix_Element_Handler::InitializeProcesses(): Performing tests ..
+  Amplitude::GaugeTest(): Large deviation {
+          8.7866542767e-18
+     vs  8.78665427672e-18
+     => -2.03936867393e-12
+  }
+.....
+  Amplitude::GaugeTest(): Large deviation {
+         2.47519008847e-25
+     vs  2.47519008856e-25
+     =>  -3.6738057041e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         4.15206734951e-22
+     vs   4.1520673496e-22
+     => -2.31095143022e-11
+  }
+....
+  Amplitude::GaugeTest(): Large deviation {
+         1.14770694003e-18
+     vs  1.14770694005e-18
+     => -1.12435616373e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.18126300523e-24
+     vs  1.18126300524e-24
+     => -5.88429305282e-12
+  }
+..
+  Amplitude::GaugeTest(): Large deviation {
+         1.11670900202e-23
+     vs  1.11670900202e-23
+     => -2.48268072767e-12
+  }
+..
+  Amplitude::GaugeTest(): Large deviation {
+         2.14042028031e-25
+     vs  2.14042028032e-25
+     => -3.78552744706e-12
+  }
+... done ( 46 MB, 0s / 0s ).
+Initialized the Matrix_Element_Handler for the hard processes.
+Initialized the Beam_Remnant_Handler.
+Hadron_Decay_Map::Read:   Initializing HadronDecays.dat. This may take some time.
+Initialized the Hadron_Decay_Handler, Decay model = Hadrons
+Initialized the Soft_Photon_Handler.
+[31mVariations::InitialiseParametersVector([32m7 variations[31m)[0m[31m{[0m
+  Named variations:
+  MUR2_MUF2_PDF247000
+  MUR1_MUF1_PDF247000
+  MUR0.5_MUF0.5_PDF247000
+  MUR1_MUF2_PDF247000
+  MUR1_MUF0.5_PDF247000
+  MUR2_MUF1_PDF247000
+  MUR0.5_MUF1_PDF247000
+[31m}[0m
+Read in channels from directory : Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/MC_2_8__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]
+Process_Group::CalculateTotalXSec(): Calculate xs for '2_8__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]' (Comix)
+[1m2_8__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~][0m : [34m[1m0.348221 pb[0m +- ( [31m0.000676084 pb = 0.194154 %[0m ) [1m exp. eff: [31m0.480357 %[0m
+  reduce max for 2_8__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~] to 0.259982 ( eps = 0.001 ) 
+Read in channels from directory : Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/MC_2_9__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]__j
+Process_Group::CalculateTotalXSec(): Calculate xs for '2_9__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]__j' (Comix)
+[1m2_9__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]__j[0m : [34m[1m0.834556 pb[0m +- ( [31m0.0410094 pb = 4.91392 %[0m ) [1m exp. eff: [31m0.00304413 %[0m
+  reduce max for 2_9__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]__j to 0.816826 ( eps = 0.001 ) 
+Read in channels from directory : Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/MC_2_8__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]
+Process_Group::CalculateTotalXSec(): Calculate xs for '2_8__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]' (Comix)
+[1m2_8__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~][0m : [34m[1m0.346772 pb[0m +- ( [31m0.000643333 pb = 0.185521 %[0m ) [1m exp. eff: [31m0.113355 %[0m
+  reduce max for 2_8__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~] to 0.0768692 ( eps = 0.001 ) 
+Read in channels from directory : Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/MC_2_9__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]__j
+Process_Group::CalculateTotalXSec(): Calculate xs for '2_9__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]__j' (Comix)
+[1m2_9__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]__j[0m : [34m[1m0.820527 pb[0m +- ( [31m0.0131087 pb = 1.5976 %[0m ) [1m exp. eff: [31m0.000726189 %[0m
+  reduce max for 2_9__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]__j to 0.977615 ( eps = 0.001 ) 
+Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0
+Process 2_8__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]read from directory Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/XS_2_8__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]  with xs = 0.348221
+Process 2_9__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]__jread from directory Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/XS_2_9__j__j__su3[e+__ve__n1__b]__su3~[mu-__vm~__n1__b~]__j  with xs = 0.834556
+Process 2_8__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]read from directory Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/XS_2_8__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]  with xs = 0.346772
+Process 2_9__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]__jread from directory Results.stop_bino_mssm_LO_CT14_tstr-230.0-0.0/Comix/XS_2_9__j__j__su3[mu+__vm__n1__b]__su3~[e-__ve~__n1__b~]__j  with xs = 0.820527
+Return_Value::PrintStatistics(): Statistics {
+  Generated events: 0
+}
+------------------------------------------------------------------------
+[1mPlease cite the publications listed in '[31mSherpa_References.tex[0m[1m'.[0m
+  Extract the bibtex list by running 'get_bibtex Sherpa_References.tex'
+  or email the file to 'slaclib2@slac.stanford.edu', subject 'generate'.
+------------------------------------------------------------------------
+Time: 3s on Wed Jan  8 16:12:09 2020
+ (User: 1s, System: 0s, Children User: 0s, Children System: 0s)
+Thanks for using LHAPDF 6.2.3. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
+                                  
+================================= 
+Global information about the job: 
+================================= 
+  
+Job owner: lscyboz(54552)
+Job name:  stop-xsecs
+Node list: dra0894
+Job start: Wed Jan  8 16:12:02 CET 2020
+Job end:   Wed Jan  8 16:12:10 CET 2020
+Work dir:  /draco/u/lscyboz/SHERPA-MC-2.2.8_stopCorrelations-new/PROD/calxsec
+Command:   /draco/u/lscyboz/SHERPA-MC-2.2.8_stopCorrelations-new/PROD/calxsec/qsub/submit-R-230.0-0.0.sh
+  
+  
+  
+================================================================================ 
+Information on jobsteps (Note: MaxRSS is per task, cf. "man sacct"): 
+================================================================================ 
+  
+       JobID    JobName NNodes NTasks  NCPUS     MaxRSS    Elapsed ExitCode 
+------------ ---------- ------ ------ ------ ---------- ---------- -------- 
+11091740.0     calcxsec      1      1      1      1168K   00:00:07      0:0 
+  
+Maximum memory per node: 0.001168 GB
+CPU utilization: 0 %
+     
