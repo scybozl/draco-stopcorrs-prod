@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 
 def listdirs(d):
 
@@ -41,7 +42,7 @@ for i,dirs in enumerate(os.listdir(path)):
   batchfile.write("srun "+cwd+"/calcxsec " + arg +" -f RunStops_MSSM_CT14_tst"+hand.lower()+"-merged.dat PRparamcard:=t"+hand+"."+str(int(PRmss))+"-M1."+str(int(PRcim))+"-mt.173.1.dat PRmss:="+str(PRmss)+" PRcim:="+str(PRcim)+" PRshower:=CSS PRtgerr:=999\n")
   batchfile.close()
 
-#  os.system('sbatch '+batchname)
+  os.system('sbatch '+batchname)
 
   while True:
     njobs = int(os.popen("squeue -u lscyboz -n 'stop-xsecs' | wc -l").read())
