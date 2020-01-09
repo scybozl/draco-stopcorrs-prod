@@ -48,15 +48,22 @@ for i,dirs in enumerate(os.listdir(path)):
   xsecs.close()
 
 realfail = 0
+realfaillist = []
 for e in lists:
 
-  if e[2] == 1: continue
+  if e[3] == 1: continue
   if e[0] == 'L': handto = 'R'
   if e[0] == 'R': handto = 'L'
 
   for j in lists:
-    if e[1] == j[1] and e[2] == j[2] and e[0] == handto:
-      if j[2] == 0: realfail += 1
+    if e[1] == j[1] and e[2] == j[2] and j[0] == handto:
+      if j[3] == 0: 
+        realfail += 1
+        realfaillist += [str(j[1]) + " / " + str(j[2])]
 
 print "\n\n Number of divergent ( i.e. tiny ) PS points: ", nfail, " / ", l
 print " Number of double-handed divergent ( i.e. tiny ) PS points: ", realfail, " / ", l
+
+print " ------ Bad points ------"
+for i in list(set(realfaillist)):
+  print "   ", i
