@@ -23,7 +23,7 @@ for i,dirs in enumerate(os.listdir(path)):
   PRmss = float(dirs.split('-Mst.')[1].split('-M')[0])
   PRcim = float(dirs.split('-M1.')[1].split('-mt')[0])
 
-  arg = "Results.stop_bino_mssm_LO_CT14_tstr-"+str(PRmss)+"-"+str(PRcim)
+  arg = "Results.stop_bino_mssm_LO_CT14_tst"+hand.lower()+"-"+str(PRmss)+"-"+str(PRcim)
 
   print i+1, "/", l, " ---> Cross-sections for ", hand, ", mstop = ", PRmss, ", mchi = ", PRcim
 #  print "srun "+cwd+"/calcxsec " + arg +" -f RunStops_MSSM_CT14_tst"+hand.lower()+"-merged.dat PRparamcard:=t"+hand+"."+str(int(PRmss))+"-M1."+str(int(PRcim))+"-mt.173.1.dat PRmss:="+str(PRmss)+" PRcim:="+str(PRcim)+" PRshower:=CSS PRtgerr:=999"
@@ -50,4 +50,5 @@ for i,dirs in enumerate(os.listdir(path)):
     if (njobs < 20): break
     time.sleep(20)
 
+#  print "srun "+cwd+"/calcxsec " + arg +" -f RunStops_MSSM_CT14_tst"+hand.lower()+"-merged.dat PRparamcard:=t"+hand+"."+str(int(PRmss))+"-M1."+str(int(PRcim))+"-mt.173.1.dat PRmss:="+str(PRmss)+" PRcim:="+str(PRcim)+" PRshower:=CSS PRtgerr:=999"
 #  os.system("srun "+cwd+"/calcxsec " + arg +" -f RunStops_MSSM_CT14_tst"+hand.lower()+"-merged.dat PRparamcard:=t"+hand+"."+str(int(PRmss))+"-M1."+str(int(PRcim))+"-mt.173.1.dat PRmss:="+str(PRmss)+" PRcim:="+str(PRcim)+" PRshower:=CSS PRtgerr:=999")
