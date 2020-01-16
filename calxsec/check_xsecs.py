@@ -24,6 +24,9 @@ for i,dirs in enumerate(os.listdir(path)):
   if not os.path.exists("xsec.out"):
     print " No xsec file!"
     print " #############################################################################\n"
+    badfile = open("status.xs", 'w')
+    badfile.write("FAILED")
+    badfile.close()
     continue
 
   xsecs = open("xsec.out", 'r')
@@ -38,11 +41,17 @@ for i,dirs in enumerate(os.listdir(path)):
   if float(xsecemu0) > 1e-5 and float(xsecemu1) > 1e-5 and float(xsecmue0) > 1e-5 and float(xsecmue1) > 1e-5:
     print "    -> \033[92m OK \033[0m"
     lists += [[hand, PRmss, PRcim, 1]]
+    okfile = open("status.xs", 'w')
+    okfile.write("GOOD")
+    okfile.close()
   else:
     nfail += 1
     print "    -> \033[91m FAIL \033[0m"
     lists += [[hand, PRmss, PRcim, 0]]
     faillist += [[hand, PRmss, PRcim, 0]]
+    badfile = open("status.xs", 'w')
+    badfile.write("FAILED")
+    badfile.close()
 
   print " #############################################################################\n"
   xsecs.close()
@@ -67,3 +76,27 @@ print " Number of double-handed divergent ( i.e. tiny ) PS points: ", realfail, 
 print " ------ Bad points ------"
 for i in list(set(realfaillist)):
   print "   ", i
+
+dataL = []
+dataR = []
+for i in lists:
+  if i[0] == 'L':
+    if i[3] == 0:
+      dataL += [",".join([str(i[1]), str(i[2]), 'red'])]
+    elif i[3] == 1:
+      dataL += [",".join([str(i[1]), str(i[2]), 'green'])]
+  elif i[0] == 'R':
+    if i[3] == 0:
+      dataR += [",".join([str(i[1]), str(i[2]), 'red'])]
+    elif i[3] == 1:
+      dataR += [",".join([str(i[1]), str(i[2]), 'green'])]
+
+os.chdir(cwd)
+
+outfile = open('badpoints-L.dat', 'w')
+outfile.writelines("\n".join(dataL))
+outfile.close()
+
+outfile2 = open('badpoints-R.dat', 'w')
+outfile2.writelines("\n".join(dataR))
+outfile2.close()
