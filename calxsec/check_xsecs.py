@@ -12,6 +12,7 @@ lists = []
 
 for i,dirs in enumerate(os.listdir(path)):
 
+  if dirs.find('yodas') != -1: continue
   curdir = cwd+'/'+path+dirs
   os.chdir(curdir)
   hand = dirs.split('-')[0]
@@ -24,24 +25,36 @@ for i,dirs in enumerate(os.listdir(path)):
   if not os.path.exists("xsec.out"):
     print " No xsec file!"
     print " #############################################################################\n"
-    badfile = open("status.xs", 'w')
+    badfile = open("status.prec.xs", 'w')
     badfile.write("FAILED")
     badfile.close()
     continue
 
   xsecs = open("xsec.out", 'r')
   lines = xsecs.readlines()
-  xsecemu0 = lines[1].split('\n')[0]
-  xsecemu1 = lines[4].split('\n')[0]
-  xsecmue0 = lines[7].split('\n')[0]
-  xsecmue1 = lines[10].split('\n')[0]
+  xsecemu0 = lines[1].split('(')[0]
+  d_xsecemu0 = lines[1].split('+/-')[1].split(')')[0]
+  xsecemu1 = lines[4].split('(')[0]
+  d_xsecemu1 = lines[4].split('+/-')[1].split(')')[0]
+  xsecmue0 = lines[7].split('(')[0]
+  d_xsecmue0 = lines[7].split('+/-')[1].split(')')[0]
+  xsecmue1 = lines[10].split('(')[0]
+  d_xsecmue1 = lines[10].split('+/-')[1].split(')')[0]
+#  xsecemu0 = lines[1].split('\n')[0]
+#  xsecemu1 = lines[4].split('\n')[0]
+#  xsecmue0 = lines[7].split('\n')[0]
+#  xsecmue1 = lines[10].split('\n')[0]
 
-  print "    e+, mu- (+1j) = ", xsecemu0, " ( ", xsecemu1, " ) ", "  \n -- e-, mu+ (+1j) = ", xsecmue0, " ( ", xsecmue1, " ) "
+  print "    e+, mu- (+1j) = ", xsecemu0, " +/- ", d_xsecemu0, " ( ", xsecemu1, " +/- ", d_xsecemu1, ") ", \
+        "  \n -- e-, mu+ (+1j) = ", xsecmue0, " +/- ", d_xsecmue0, " ( ", xsecmue1, " +/- ", d_xsecmue1, ") "
 
-  if float(xsecemu0) > 1e-5 and float(xsecemu1) > 1e-5 and float(xsecmue0) > 1e-5 and float(xsecmue1) > 1e-5:
+#  If cross-section is unnaturally small
+#  if float(xsecemu0) > 1e-5 and float(xsecemu1) > 1e-5 and float(xsecmue0) > 1e-5 and float(xsecmue1) > 1e-5:
+  if (float(d_xsecemu0) / float(xsecemu0) < 0.05 and float(d_xsecemu1) / float(xsecemu1) < 0.05 and
+      float(d_xsecmue0) / float(xsecmue0) < 0.05 and float(d_xsecmue1) / float(xsecmue1) < 0.05):
     print "    -> \033[92m OK \033[0m"
     lists += [[hand, PRmss, PRcim, 1]]
-    okfile = open("status.xs", 'w')
+    okfile = open("status.prec.xs", 'w')
     okfile.write("GOOD")
     okfile.close()
   else:
@@ -49,7 +62,7 @@ for i,dirs in enumerate(os.listdir(path)):
     print "    -> \033[91m FAIL \033[0m"
     lists += [[hand, PRmss, PRcim, 0]]
     faillist += [[hand, PRmss, PRcim, 0]]
-    badfile = open("status.xs", 'w')
+    badfile = open("status.prec.xs", 'w')
     badfile.write("FAILED")
     badfile.close()
 

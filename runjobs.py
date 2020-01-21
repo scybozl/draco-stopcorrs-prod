@@ -230,7 +230,7 @@ if mode == "event":
   os.system('mkdir qsub/event-'+resubmitFolder+'\n')
   os.system('mkdir qsub/out/event-'+resubmitFolder+'\n')
 
-  inputlist = open("ParamCards/tL.half.list", 'r')
+  inputlist = open("ParamCards/tL.quarter1.list", 'r')
   for pcard in inputlist:
     pcard = pcard.split('\n')[0]
 #  for pcard in glob("ParamCards/tL*.dat"):
@@ -247,7 +247,9 @@ if mode == "event":
         dirname = cwd+'/'+resubmitFolder+'/'+runname
         filename = 'RunStops_MSSM_CT14_tst'+hand.lower()+'-merged.dat'
 
-        statusf = open(dirname+"/status.xs",'r')
+        os.system("mkdir /ptmp/lscyboz/StopCorr-PROD/OutHepMC-"+hand+'-'+str(float(mstop))+'-'+str(float(mchi)))
+
+        statusf = open(dirname+"/status.prec.xs",'r')
         if statusf.readline() == "FAILED":
           print "No final integrated xs"
           continue
@@ -277,10 +279,10 @@ if mode == "event":
         batchfile.write('export LD_LIBRARY_PATH=/ptmp/lscyboz/LHAPDF-6.2.3/lib:$LD_LIBRARY_PATH\n')
         batchfile.write('export LD_LIBRARY_PATH=/u/lscyboz/SHERPA-MC-2.2.8_stopCorrelations-new/lib/SHERPA-MC/:$LD_LIBRARY_PATH\n')
         batchfile.write('export PATH=/u/lscyboz/SHERPA-MC-2.2.8_stopCorrelations-new/bin/:$PATH\n')
-        batchfile.write(' '.join(['srun', 'Sherpa', ' PRran:=1$SLURM_JOB_ID'] + sherpaopts)+' -e 50000\n')
+        batchfile.write(' '.join(['srun', 'Sherpa', ' PRran:=1$SLURM_JOB_ID'] + sherpaopts)+' -e 80000\n')
         batchfile.close()
 
-        os.system('sbatch '+batchname)
+#        os.system('sbatch '+batchname)
 
         while True:
           njobs = int(os.popen("squeue -u lscyboz -n 'prod-st' | wc -l").read())
@@ -349,4 +351,24 @@ elif mode == "rivet":
     process.stdin.write('exit 0\n')
     process.stdin.close()
 
+elif mode == "yodamerge":
+  inputlist = open("ParamCards/tL.quarter1.list", 'r')
+  os.system("source /ptmp/lscyboz/Rivet-2.5.4/rivetenv.sh")
+  os.system("mkdir " + cwd + '/' + resubmitFolder + '/yodas/')
 
+  for pcard in inputlist:
+    pcard = pcard.split('\n')[0]
+    for hand in ['L', 'R']:
+
+        paramcard = pcard.replace('tL', 't'+hand)
+        mstop = paramcard.split('.')[1].split('-')[0]
+        mchi  = paramcard.split('-')[1].split('M1.')[1]
+
+        print " ------- mstop = ", mstop, " - mchi = ", mchi, " -- ", hand, " ------- "
+
+        runname = hand+'-Mst.'+mstop+'-M1.'+mchi+'-mt.173.1'
+        dirname = cwd+'/'+resubmitFolder+'/'+runname
+        filename = 'RunStops_MSSM_CT14_tst'+hand.lower()+'-merged.dat'
+
+        os.chdir(dirname + '/Outputstop_bino_mssm_LO_CT14_tst' + hand.lower() +'-CSS-nnpdf23lo')
+        os.system("yodamerge *MUR1_MUF1*.yoda -o " + cwd + '/' + resubmitFolder + '/yodas/' + runname + '_MUR1_MUF1.yoda')
