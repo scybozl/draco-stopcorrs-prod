@@ -265,8 +265,8 @@ if mode == "event":
         batchname = 'qsub/event-'+resubmitFolder+'/submit-'+runname+'.sh'
         batchfile = open(batchname, 'w')
         batchfile.write('#!/bin/bash -l\n')
-        batchfile.write('#SBATCH --error="'+cwd+'/qsub/out/event-'+resubmitFolder+'/slurm-'+runname+'.err"\n')
-        batchfile.write('#SBATCH --output="'+cwd+'/qsub/out/event-'+resubmitFolder+'/slurm-'+runname+'.out"\n')
+        batchfile.write('#SBATCH --error="'+cwd+'/qsub/out/event-'+resubmitFolder+'/slurm-'+runname+'-1$SLURM_JOB_ID.err"\n')
+        batchfile.write('#SBATCH --output="'+cwd+'/qsub/out/event-'+resubmitFolder+'/slurm-'+runname+'-1$SLURM_JOB_ID.out"\n')
         batchfile.write('#SBATCH -J prod-st\n')
         batchfile.write('#SBATCH --partition=short\n')
         batchfile.write('#SBATCH --nodes=1\n')
@@ -282,7 +282,7 @@ if mode == "event":
         batchfile.write(' '.join(['srun', 'Sherpa', ' PRran:=1$SLURM_JOB_ID'] + sherpaopts)+' -e 80000\n')
         batchfile.close()
 
-#        os.system('sbatch '+batchname)
+        os.system('sbatch '+batchname)
 
         while True:
           njobs = int(os.popen("squeue -u lscyboz -n 'prod-st' | wc -l").read())
@@ -372,3 +372,25 @@ elif mode == "yodamerge":
 
         os.chdir(dirname + '/Outputstop_bino_mssm_LO_CT14_tst' + hand.lower() +'-CSS-nnpdf23lo')
         os.system("yodamerge *MUR1_MUF1*.yoda -o " + cwd + '/' + resubmitFolder + '/yodas/' + runname + '_MUR1_MUF1.yoda')
+
+elif mode == "yodamerge-rest":
+  inputlist = open("ParamCards/tL.quarter1.list", 'r')
+  os.system("source /ptmp/lscyboz/Rivet-2.5.4/rivetenv.sh")
+  os.system("mkdir " + cwd + '/' + resubmitFolder + '/yodas/')
+
+  for pcard in inputlist:
+    pcard = pcard.split('\n')[0]
+    for hand in ['L', 'R']:
+
+        paramcard = pcard.replace('tL', 't'+hand)
+        mstop = paramcard.split('.')[1].split('-')[0]
+        mchi  = paramcard.split('-')[1].split('M1.')[1]
+
+        print " ------- mstop = ", mstop, " - mchi = ", mchi, " -- ", hand, " ------- "
+
+        runname = hand+'-Mst.'+mstop+'-M1.'+mchi+'-mt.173.1'
+        dirname = cwd+'/'+resubmitFolder+'/'+runname
+        filename = 'RunStops_MSSM_CT14_tst'+hand.lower()+'-merged.dat'
+
+        os.chdir('/ptmp/lscyboz/StopCorr-PROD/OutHepMC-'+hand+'-'+str(float(mstop))+'-'+str(float(mchi)))
+        os.system("yodamerge *.yoda -o " + cwd + '/' + resubmitFolder + '/yodas/' + runname + '_MUR1_MUF1.yoda')

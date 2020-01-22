@@ -1,1 +1,5 @@
-calxsec/qsub
+PROD-*
+
+calxsec/qsub/
+qsub/*
+*/qsub
